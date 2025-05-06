@@ -2,7 +2,9 @@
 
 A web-based interactive visualization of mathematical chaos equations, inspired by CodeParade's "Chaos Equations" concept. This project brings to life the complex and beautiful patterns that emerge from simple mathematical rules applied iteratively.
 
-![Chaos Equation Visualization](https://i.imgur.com/demo.png)
+![Chaos Equation Visualization](/img.png)
+
+**Live Demo**: [https://thinkyminer.github.io/ChaosEquation/](https://thinkyminer.github.io/ChaosEquation/)
 
 ## Features
 
