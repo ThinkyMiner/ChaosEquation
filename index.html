@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaos Equation Visualization</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Chaos Equation Visualization</h1>
+        
+        <div class="parameter-info">
+            <h3>About This Visualization</h3>
+            <p>This visualization demonstrates a chaotic system based on the equations:</p>
+            <div class="equation-display">
+                <p>x' = <span id="xEquationDisplay">-x² + xt + y</span></p>
+                <p>y' = <span id="yEquationDisplay">x² - y² - t² - xy + yt - x + y</span></p>
+                <p>Code: <span id="equationCode">_______</span></p>
+            </div>
+            <p>Current t = <span id="tValue">0.0</span></p>
+        </div>
+        
+        <div class="featured-codes">
+            <h3>Featured Patterns</h3>
+            <div class="code-buttons">
+                <button class="code-btn" data-code="LDNMGQ">Spiral Galaxy</button>
+                <button class="code-btn" data-code="HELPME">Chaotic Attractor</button>
+                <button class="code-btn" data-code="I_CNJJ">Fractal Structures</button>
+                <button class="code-btn" data-code="UFHUBR">Butterfly Pattern</button>
+                <button class="code-btn" data-code="YAXVBB">Wave Interference</button>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="equation1">X Equation:</label>
+                <input type="text" id="equation1" value="-x² + xt + y">
+                <span class="control-info">Mathematical formula for X coordinate evolution</span>
+            </div>
+            <div class="control-group">
+                <label for="equation2">Y Equation:</label>
+                <input type="text" id="equation2" value="x² - y² - t² - xy + yt - x + y">
+                <span class="control-info">Mathematical formula for Y coordinate evolution</span>
+            </div>
+            <div class="control-group">
+                <label for="equationCodeInput">Equation Code:</label>
+                <input type="text" id="equationCodeInput" placeholder="Enter 6-letter code">
+                <span class="control-info">Load a saved equation using its code</span>
+            </div>
+            <div class="control-group">
+                <label for="initialX">Initial X:</label>
+                <input type="number" id="initialX" value="0.1" step="0.1">
+                <span class="control-info">Starting X value (dimensionless)</span>
+            </div>
+            <div class="control-group">
+                <label for="initialY">Initial Y:</label>
+                <input type="number" id="initialY" value="0.1" step="0.1">
+                <span class="control-info">Starting Y value (dimensionless)</span>
+            </div>
+            <div class="control-group">
+                <label for="initialT">Initial T:</label>
+                <input type="number" id="initialT" value="0" step="0.1">
+                <span class="control-info">Starting time parameter (dimensionless)</span>
+            </div>
+            <div class="control-group">
+                <label for="tRate">T Change Rate:</label>
+                <input type="number" id="tRate" value="0.005" step="0.001" min="0.001" max="0.1">
+                <span class="control-info">How fast time evolves per iteration (0.001 - 0.1)</span>
+            </div>
+            <div class="control-group">
+                <label for="speed">Calculation Speed:</label>
+                <input type="range" id="speed" min="1" max="100" value="50">
+                <span class="control-info">1 (slow, ~1 calc/frame) to 100 (fast, ~12 calcs/frame)</span>
+            </div>
+            <div class="buttons-container">
+                <button id="start">Start</button>
+                <button id="stop">Stop</button>
+                <button id="clear">Clear</button>
+                <button id="apply">Apply</button>
+                <button id="randomize">Randomize</button>
+                <button id="loadCode">Load Code</button>
+                <button id="center">Center</button>
+            </div>
+        </div>
+        
+        <canvas id="chaosCanvas"></canvas>
+        
+        <div class="info">
+            <h3>Keyboard Controls</h3>
+            <ul>
+                <li><strong>A</strong> Automatic mode (randomize equations)</li>
+                <li><strong>R</strong> Repeat mode (keep same equation)</li>
+                <li><strong>C</strong> Center points</li>
+                <li><strong>D</strong> Toggle dot size</li>
+                <li><strong>I</strong> Toggle iteration limit</li>
+                <li><strong>T</strong> Toggle trail type</li>
+                <li><strong>P</strong> Pause/Resume</li>
+                <li><strong>Space</strong> Reverse direction</li>
+                <li><strong>N</strong> New random equation</li>
+            </ul>
+            
+            <div class="parameter-info">
+                <h3>How It Works</h3>
+                <p>For every time t, a point (x,y) is initialized to (t,t). The equation is applied to the point many times, and each iteration is drawn in a unique color.</p>
+                <p>The equations use 18 parameters to combine x², y², t², xy, xt, yt, x, y, and t terms.</p>
+                <p>You can save interesting patterns by noting their equation code.</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
